@@ -49,8 +49,6 @@ week8_tbl %>%
 [Insert plain text explanation]
 ```{r analysis}
 cor_result = cor.test(x = week8_tbl$mean_1_6, y = week8_tbl$mean_8_10)
-cor_estimate = cor_result$estimate
-cor_pval = cor_result$p.value
 ```
 I observed a correlation of `r cor_result$estimate` and `r cor_result$p.value`
 
