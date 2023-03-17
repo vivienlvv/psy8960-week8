@@ -23,11 +23,15 @@ library(ggplot2)
 [Insert plain text explanation]
 ```{r cleaning, message= FALSE}
 week8_tbl = read_csv("../data/week3.csv") %>% 
-  as.tibble() %>% 
-  mutate(q5 = 6 - q5) %>% 
+  tibble() %>% 
+  mutate(q5 = 6 - q5,
+         gender = factor(gender, levels = c("M", "F"), labels = c("Male", "Female")),
+         timeStart = ymd_hms(timeStart),
+         timeEnd = ymd_hms(timeEnd)) %>% 
   rowwise() %>% 
-  mutate(mean_1_6 = mean(c(q1,q2,q3,q4,q5,q6)),
-         mean_8_10 = mean(c(q8,q9,q10)))
+  mutate(mean_1_to_6 = mean(c(q1,q2,q3,q4,q5,q6)),
+         mean_8_to_10 = mean(c(q8,q9,q10))) %>% 
+  ungroup()
 ```
 
 # 4 Visualization
@@ -37,7 +41,7 @@ week8_tbl %>% select(paste0("q",1:6))
 
 # Scatterplot
 week8_tbl %>%
-  ggplot(aes(x = mean_1_6, y = mean_8_10)) + 
+  ggplot(aes(x = mean_1_to_6, y = mean_8_to_10)) + 
   geom_point() + 
   geom_smooth(method = "lm", color = "purple") + 
   labs(x = "Mean scores on Q1-Q6",
@@ -48,13 +52,13 @@ week8_tbl %>%
 # 5 Analysis 
 [Insert plain text explanation]
 ```{r analysis}
-cor_result = cor.test(x = week8_tbl$mean_1_6, y = week8_tbl$mean_8_10)
+cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)
 ```
 I observed a correlation of `r cor_result$estimate` and `r cor_result$p.value`
 
 # 6 Data Export 
 ```{r export}
-
+week8_tbl %>% 
 ```
 
 
