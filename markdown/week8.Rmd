@@ -58,7 +58,7 @@ I observed a correlation of `r cor_result$estimate` and `r cor_result$p.value`
 
 # 6 Data Export 
 ```{r export}
-week8_tbl %>% 
+week8_tbl %>% saveRDS(file = "../data/week8_shiny_data.RDS")
 ```
 
 
