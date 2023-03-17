@@ -20,7 +20,7 @@ ui = fluidPage(
     ),
     mainPanel(
       # 3. Display ggplot2 from part 2
-      DT::DTOutput("plot")
+      plotOutput("plot")
     )
   ) 
 )
