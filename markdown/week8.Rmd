@@ -1,0 +1,10 @@
+---
+title: "PSY 8960 Week 8 Project"
+author: "Vivien Lee"
+date: 
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
