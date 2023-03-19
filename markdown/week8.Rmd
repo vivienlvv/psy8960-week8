@@ -71,9 +71,9 @@ cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)
 ```
 
 # 6 **Data Export** 
-In this final step, I exported the cleaned dataset as an RDS object to retain properties (e.g., types) of the dataset and saved it into the data sub-directory. 
+In this final step, I exported the cleaned dataset as an RDS object to retain properties (e.g., types) of the dataset and saved it into the shiny_week8 directory for shiny app to use. 
 ```{r export}
-week8_tbl %>% saveRDS(file = "../data/week8_shiny_data.rds")
+week8_tbl %>% saveRDS(file = "../shiny_week8/week8_shiny_data.rds")
 ```
 
 
