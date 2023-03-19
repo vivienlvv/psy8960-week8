@@ -7,21 +7,31 @@ output:
     df_print: paged
 ---
 
-# 1 Reproducible Image and Online Resources- Revisit at the end
+
+# **1 Reproducible Image and Online Resources- Revisit at the end**
 [Insert plain text explanation]
 An image of this project as of date can be accessed by clicking this link.
 
-# 2 Script Settings and Resources
+# 2 **Script Settings and Resources**
 [Insert plain text explanation]
 ```{r setup, message = FALSE}
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# Loading all required libraries
 library(tidyverse)
 library(ggplot2)
+
+setwd("../")
+
+# Add line for knitting to the "out" directory
+# knitr::opts_knit$set(root.dir=normalizePath('../'))
 ```
 
-# 3 Data Import and Cleaning
-[Insert plain text explanation]
+
+
+# 3 **Data Import and Cleaning**
+For this section, using a single series of pipes, I cleaned the data by reverse coding Q5 (instead of doing it directly on csv file to ensure reproducibility), casted variables into their correct types, and computed the mean of Q1-Q6 as well as mean of Q8-Q10 for creating data visualization below. 
+\n
 ```{r cleaning, message= FALSE}
+
 week8_tbl = read_csv("../data/week3.csv") %>% 
   tibble() %>% 
   mutate(q5 = 6 - q5,
@@ -34,9 +44,13 @@ week8_tbl = read_csv("../data/week3.csv") %>%
   ungroup()
 ```
 
-# 4 Visualization
-[Insert plain text explanation]
-```{r visualizations, echo = FALSE, message = FALSE}
+# 4 **Visualization**
+To display data from Q1 to Q6, I enabled paginated view by...
+I created a scatterplot using ggplot() and used geom_smooth() to create a regression line, leaving se = TRUE (default) to retain the shaded error band. 
+
+\n
+```{r visualizations, echo = FALSE, message = FALSE, fig.align='center'}
+
 week8_tbl %>% select(paste0("q",1:6))
 
 # Scatterplot
@@ -49,16 +63,25 @@ week8_tbl %>%
 ```
 
 
-# 5 Analysis 
-[Insert plain text explanation]
+# 5 **Analysis** 
+The code below computes the correlation between mean of Q1-Q6 and mean of Q8-10. I displayed the correlation estimate and associated p-value by putting the variables within r backticks. 
+\n
 ```{r analysis}
 cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)
 ```
 I observed a correlation of `r cor_result$estimate` and `r cor_result$p.value`
 
-# 6 Data Export 
+# 6 **Data Export** 
+In this final step, I exported the cleaned dataset as an RDS object to retain properties (e.g., types) of the dataset and saved it into the data sub-directory. 
 ```{r export}
 week8_tbl %>% saveRDS(file = "../data/week8_shiny_data.RDS")
 ```
+
+
+
+
+
+
+
 
 
