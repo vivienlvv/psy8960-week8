@@ -12,10 +12,10 @@ knit: (function(inputFile, encoding) {
 
 
 # **Reproducible Image and Online Resources**
-An image of this project as of _`r Sys.Date()`_ can be accessed by [clicking this link](insert link).\
+An image of this project as of _`r Sys.Date()`_ can be accessed by [clicking this link](https://mybinder.org/v2/gh/vivienlvv/psy8960-week8/HEAD?urlpath=rstudio).\
 An interactive web app is available by [clicking this link instead](https://vivienlvv.shinyapps.io/shiny_week8/).\
 \n
-In this section, I created a reproducible image and linked...
+In this section, I created a mirror image of my github repository at mybinder.org.
 
 
 # **Script Settings and Resources**
