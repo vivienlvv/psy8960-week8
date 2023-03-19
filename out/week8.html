@@ -11,6 +11,7 @@
 
 <meta name="author" content="Vivien Lee" />
 
+<meta name="date" content="2023-03-19" />
 
 <title>PSY 8960 Week 8 Project</title>
 
@@ -1622,18 +1623,23 @@ display: none;
 
 <h1 class="title toc-ignore">PSY 8960 Week 8 Project</h1>
 <h4 class="author">Vivien Lee</h4>
+<h4 class="date">2023-03-19</h4>
 
 </div>
 
 
-<div id="reproducible-image-and-online-resources--revisit-at-the-end" class="section level1">
-<h1><strong>Reproducible Image and Online Resources- Revisit at the
-end</strong></h1>
-<p>[Insert plain text explanation] An image of this project as of date
-can be accessed by clicking this link.</p>
+<div id="reproducible-image-and-online-resources" class="section level1">
+<h1><strong>Reproducible Image and Online Resources</strong></h1>
+<p>An image of this project as of <em>2023-03-19</em> can be accessed by
+<a href="insert%20link">clicking this link</a>.<br />
+An interactive web app is available by <a href="https://vivienlvv.shinyapps.io/shiny_week8/">clicking this link
+instead</a>.<br />
+In this section, I created a reproducible image and linked…</p>
 </div>
 <div id="script-settings-and-resources" class="section level1">
 <h1><strong>Script Settings and Resources</strong></h1>
+<p>In this section, I loaded all required libraries for cleaning and
+analysis.</p>
 <pre class="r"><code># Loading all required libraries
 library(tidyverse)
 library(ggplot2)</code></pre>
@@ -1643,8 +1649,8 @@ library(ggplot2)</code></pre>
 <p>For this section, using a single series of pipes, I cleaned the data
 by reverse coding Q5 (instead of doing it directly on csv file to ensure
 reproducibility), casted variables into their correct types, and
-computed the mean of Q1-Q6 as well as mean of Q8-Q10 for creating data
-visualization below. </p>
+computed the mean of Q1-Q6 as well as mean of Q8-Q10 for creating the
+scatterplot below. </p>
 <pre class="r"><code>week8_tbl = read_csv(&quot;../data/week3.csv&quot;) %&gt;% 
   tibble() %&gt;% 
   mutate(q5 = 6 - q5,
@@ -1658,10 +1664,12 @@ visualization below. </p>
 </div>
 <div id="visualization" class="section level1">
 <h1><strong>Visualization</strong></h1>
-<p>I created a scatterplot using ggplot() and used geom_smooth() to
+<p>Data from Q1 to Q6 can be explored from the data table below. In this
+section, I also created a scatterplot to visualize the relationship
+between mean of Q1-Q6 and mean of Q8-10. geom_smooth() was used to
 create a regression line, leaving se = TRUE (default) to retain the
-shaded error band. There appears to be a weak relationship between the
-two means.</p>
+shaded error band. Overall, there appears to be a weak relationship
+between the two means.</p>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["q1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["q2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["q3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["q4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["q5"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["q6"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"4","3":"4","4":"1","5":"2","6":"1"},{"1":"2","2":"4","3":"3","4":"1","5":"3","6":"1"},{"1":"5","2":"5","3":"2","4":"1","5":"5","6":"1"},{"1":"4","2":"3","3":"4","4":"2","5":"4","6":"1"},{"1":"3","2":"1","3":"3","4":"5","5":"2","6":"1"},{"1":"4","2":"3","3":"2","4":"3","5":"3","6":"1"},{"1":"2","2":"4","3":"1","4":"3","5":"1","6":"1"},{"1":"4","2":"2","3":"5","4":"1","5":"1","6":"1"},{"1":"2","2":"5","3":"3","4":"4","5":"2","6":"1"},{"1":"3","2":"4","3":"2","4":"4","5":"5","6":"1"},{"1":"5","2":"2","3":"3","4":"1","5":"5","6":"1"},{"1":"3","2":"1","3":"3","4":"5","5":"4","6":"1"},{"1":"5","2":"5","3":"2","4":"3","5":"4","6":"1"},{"1":"1","2":"3","3":"5","4":"4","5":"2","6":"1"},{"1":"4","2":"1","3":"5","4":"1","5":"1","6":"1"},{"1":"1","2":"3","3":"2","4":"4","5":"5","6":"3"},{"1":"2","2":"5","3":"4","4":"3","5":"4","6":"1"},{"1":"4","2":"4","3":"1","4":"3","5":"5","6":"1"},{"1":"2","2":"3","3":"1","4":"1","5":"4","6":"1"},{"1":"3","2":"1","3":"2","4":"2","5":"1","6":"1"},{"1":"3","2":"4","3":"3","4":"3","5":"5","6":"1"},{"1":"3","2":"1","3":"1","4":"2","5":"3","6":"1"},{"1":"5","2":"4","3":"4","4":"2","5":"5","6":"1"},{"1":"5","2":"2","3":"1","4":"2","5":"4","6":"4"},{"1":"3","2":"3","3":"1","4":"4","5":"5","6":"1"},{"1":"5","2":"1","3":"3","4":"4","5":"5","6":"1"},{"1":"2","2":"4","3":"5","4":"4","5":"2","6":"1"},{"1":"2","2":"4","3":"5","4":"5","5":"3","6":"1"},{"1":"5","2":"5","3":"3","4":"2","5":"4","6":"1"},{"1":"1","2":"4","3":"2","4":"4","5":"2","6":"1"},{"1":"4","2":"1","3":"4","4":"5","5":"1","6":"1"},{"1":"3","2":"4","3":"3","4":"2","5":"1","6":"1"},{"1":"3","2":"5","3":"5","4":"5","5":"5","6":"5"},{"1":"3","2":"1","3":"5","4":"5","5":"2","6":"1"},{"1":"3","2":"1","3":"2","4":"4","5":"5","6":"1"},{"1":"3","2":"3","3":"1","4":"1","5":"1","6":"1"},{"1":"4","2":"2","3":"2","4":"5","5":"1","6":"1"},{"1":"1","2":"3","3":"3","4":"5","5":"4","6":"1"},{"1":"5","2":"4","3":"3","4":"3","5":"1","6":"1"},{"1":"5","2":"1","3":"5","4":"2","5":"2","6":"1"},{"1":"3","2":"3","3":"4","4":"1","5":"2","6":"1"},{"1":"5","2":"4","3":"1","4":"1","5":"2","6":"1"},{"1":"4","2":"5","3":"3","4":"2","5":"2","6":"1"},{"1":"4","2":"1","3":"3","4":"1","5":"2","6":"1"},{"1":"5","2":"3","3":"3","4":"5","5":"5","6":"1"},{"1":"1","2":"4","3":"2","4":"2","5":"1","6":"1"},{"1":"2","2":"1","3":"1","4":"3","5":"1","6":"1"},{"1":"4","2":"1","3":"5","4":"2","5":"4","6":"1"},{"1":"4","2":"2","3":"3","4":"1","5":"3","6":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1676,12 +1684,23 @@ mean of Q8-10. I observed a correlation of 0.0847457 with a p-value of
 0.5626235 &gt; 0.05. Using the threshold of <span class="math inline">\(\alpha\)</span> = .05, the correlation between the
 mean of Q1-Q6 and mean of Q8-Q10 are not statistically different from
 zero.</p>
-<pre class="r"><code>cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)</code></pre>
+<pre class="r"><code>cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  week8_tbl$mean_1_to_6 and week8_tbl$mean_8_to_10
+## t = 0.58309, df = 47, p-value = 0.5626
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.2012466  0.3574248
+## sample estimates:
+##        cor 
+## 0.08474575</code></pre>
 </div>
 <div id="data-export" class="section level1">
 <h1><strong>Data Export</strong></h1>
 <p>In this final step, I exported the cleaned dataset as an RDS object
-to retain properties (e.g., types) of the dataset and saved it into the
+to retain properties (e.g., types) of the data and saved it into the
 shiny_week8 directory for shiny app to use.</p>
 <pre class="r"><code>week8_tbl %&gt;% saveRDS(file = &quot;../shiny_week8/week8_shiny_data.rds&quot;)</code></pre>
 </div>
