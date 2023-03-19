@@ -1,7 +1,6 @@
 ---
 title: "PSY 8960 Week 8 Project"
 author: "Vivien Lee"
-date: 
 output: 
   html_document:
     df_print: paged
@@ -49,7 +48,7 @@ To display data from Q1 to Q6, I enabled paginated view by...
 I created a scatterplot using ggplot() and used geom_smooth() to create a regression line, leaving se = TRUE (default) to retain the shaded error band. 
 
 \n
-```{r visualizations, echo = FALSE, message = FALSE, fig.align='center'}
+```{r visualizations, echo = FALSE, message = FALSE, fig.align= "center"}
 
 week8_tbl %>% select(paste0("q",1:6))
 
@@ -64,12 +63,12 @@ week8_tbl %>%
 
 
 # 5 **Analysis** 
-The code below computes the correlation between mean of Q1-Q6 and mean of Q8-10. I displayed the correlation estimate and associated p-value by putting the variables within r backticks. 
+The code below computes the correlation between mean of Q1-Q6 and mean of Q8-10. I observed a correlation of `r cor.test(week8_tbl$mean_1_to_6,week8_tbl$mean_8_to_10)$estimate` with a p-value of `r cor.test(week8_tbl$mean_1_to_6,week8_tbl$mean_8_to_10)$p.value` > 0.05. Using the threshold of $\alpha$ = .05, the correlation between the mean of Q1-Q6 and mean of Q8-Q10 are not statistically different from zero. 
+
 \n
 ```{r analysis}
 cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)
 ```
-I observed a correlation of `r cor_result$estimate` and `r cor_result$p.value`
 
 # 6 **Data Export** 
 In this final step, I exported the cleaned dataset as an RDS object to retain properties (e.g., types) of the dataset and saved it into the data sub-directory. 

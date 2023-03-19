@@ -1678,10 +1678,11 @@ band.</p>
 <div id="analysis" class="section level1">
 <h1>5 <strong>Analysis</strong></h1>
 <p>The code below computes the correlation between mean of Q1-Q6 and
-mean of Q8-10. I displayed the correlation estimate and associated
-p-value by putting the variables within r backticks. </p>
+mean of Q8-10. I observed a correlation of 0.0847457 with a p-value of
+0.5626235 &gt; 0.05. Using the threshold of <span class="math inline">\(\alpha\)</span> = .05, the correlation between the
+mean of Q1-Q6 and mean of Q8-Q10 are not statistically different from
+zero.</p>
 <pre class="r"><code>cor_result = cor.test(x = week8_tbl$mean_1_to_6, y = week8_tbl$mean_8_to_10)</code></pre>
-<p>I observed a correlation of 0.0847457 and 0.5626235</p>
 </div>
 <div id="data-export" class="section level1">
 <h1>6 <strong>Data Export</strong></h1>
