@@ -1,4 +1,5 @@
-# Data import & Calling required libraries
+# Calling required libraries & setting r environment
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(shiny)
 library(tidyverse)
 library(ggplot2)
@@ -34,7 +35,7 @@ ui = fluidPage(
 server = function(input, output){
   
     # Loading in the RDS object as data once 
-    week8_shiny_data = readRDS("../data/week8_shiny_data.RDS")
+    week8_shiny_data = readRDS("./week8_shiny_data.rds")
   
     # Rendering output ggplot 
     output$plot = renderPlot({
@@ -63,4 +64,4 @@ server = function(input, output){
 
 
 shinyApp(ui = ui , server = server)
-# rsconnect::deployApp('shiny_week8/')
+# rsconnect::deployApp('./')
