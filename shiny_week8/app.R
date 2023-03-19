@@ -1,5 +1,4 @@
 # Calling required libraries & setting r environment
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(shiny)
 library(tidyverse)
 library(ggplot2)
@@ -64,4 +63,4 @@ server = function(input, output){
 
 
 shinyApp(ui = ui , server = server)
-# rsconnect::deployApp('./')
+# rsconnect::deployApp('./shiny_week8/')
